@@ -1,35 +1,57 @@
 
-public class Philosopher implements Runnable {
+public class Philosopher implements Runnable 
+{
 	
 	DiningServer server;
 	int number;
 	
-	public Philosopher(DiningServer server, int number) {
+	//Basic constructor for Philosopher class
+	public Philosopher(DiningServer server, int number) 
+	{
 		this.server = server;
 		this.number = number;
 	}
 
 	@Override
-	public void run() {
-		while(true) {
+	public void run() 
+	{
+		//Philosopher will continue to think and eat forever
+		while(true) 
+		{
 			think();
 			eat();
 		}
 	}
 	
-	public void think() {
+	public void think() 
+	{
 		System.out.println("Philosopher " +number+ " is thinking.");
-		try {
+		try 
+		{
+		//Think for 5 milliseconds
 		Thread.sleep(5000);
-		} catch (InterruptedException e){}
+		} 
+		catch (InterruptedException e)
+		{
+			System.out.println("There's been an interruption!!!");
+		}
 	}
 	
-	public void eat() {
+	public void eat() 
+	{
+		//Must take forks before you can eat!
 		server.takeForks(number);
 		System.out.println("Philosopher " +number+ " is eating.");
-		try {
+		try 
+		{
+	    //Spend 5 milliseconds eating
 		Thread.sleep(5000);
-		} catch (InterruptedException e){}
+		} 
+		catch (InterruptedException e)
+		{
+			System.out.println("There's been an interruption!!!");
+		}
+		//Return the forks
 		server.returnForks(number);
 	}
 
