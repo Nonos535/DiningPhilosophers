@@ -28,8 +28,8 @@ public class Philosopher implements Runnable
 		System.out.println("Philosopher " +number+ " is thinking.");
 		try 
 		{
-		//Think for 5 milliseconds
-		Thread.sleep(5000);
+		//Think for 10 milliseconds
+		Thread.sleep(10000);
 		} 
 		catch (InterruptedException e)
 		{
